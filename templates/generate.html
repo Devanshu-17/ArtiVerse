@@ -1,0 +1,930 @@
+<!-- generate.html -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Generate Image</title>
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="static/Gen/assets/vendors/mdi/css/materialdesignicons.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="static/Gen/assets/vendors/flag-icon-css/css/flag-icon.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="static/Gen/assets/vendors/css/vendor.bundle.base.css"
+        />
+        <link
+            rel="stylesheet"
+            href="static/Gen/assets/vendors/font-awesome/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="static/Gen/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css"
+        />
+        <link rel="stylesheet" href="static/Gen/assets/css/style.css" />
+        <link rel="shortcut icon" href="static/Gen/assets/images/favicon.png" />
+        <style>
+            .container-scroller {
+                background-color: #66c;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px #888;
+                margin-top: 20px;
+                display: flex;
+            }
+            .sidebar {
+                flex-basis: 25%;
+                padding-right: 20px;
+            }
+            .canvas {
+                flex-basis: 75%;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+
+    <header class="header-area">
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <!-- <a class="navbar-brand" href="/">
+                                <img
+                                    src="{{ url_for('static',
+                                filename='/images/side.png') }}"
+                                    alt="Logo"
+                                />
+                            </a> -->
+                            <button
+                                class="navbar-toggler"
+                                type="button"
+                                data-toggle="collapse"
+                                data-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent"
+                                aria-expanded="false"
+                                aria-label="Toggle navigation"
+                            >
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+
+                            <div
+                                class="collapse navbar-collapse sub-menu-bar"
+                                id="navbarSupportedContent"
+                            >
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                    <li class="nav-item active">
+                                        <a class="page-scroll" style="color: aliceblue; font-size: 20px; font-weight: 700;" href="/"
+                                            >Home</a
+                                        >
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="page-scroll" style="color: aliceblue; font-size: 20px; font-weight: 700;"href="/demo"
+                                            >Content Generator</a
+                                        >
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="page-scroll" style="color: aliceblue; font-size: 20px; font-weight: 700;" href="/generate"
+                                            >Image Generator</a
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- navbar collapse -->
+                        </nav>
+                        <!-- navbar -->
+                    </div>
+                </div>
+                <!-- row -->
+            </div>
+            <!-- container -->
+        </div>
+        <!-- navbar area -->
+
+            </div>
+            <!-- header shape -->
+        </div>
+        <!-- header hero -->
+    </header>
+    <style>
+        /*===========================
+      02.HEADER css 
+===========================*/
+        /*===== NAVBAR =====*/
+        .navbar-area {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 99;
+            -webkit-transition: all 0.3s ease-out 0s;
+            -moz-transition: all 0.3s ease-out 0s;
+            -ms-transition: all 0.3s ease-out 0s;
+            -o-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+        }
+
+        .sticky {
+            position: fixed;
+            z-index: 99;
+            background-color: #fff;
+            -webkit-box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.05);
+            -moz-box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.05);
+            box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.05);
+            -webkit-transition: all 0.3s ease-out 0s;
+            -moz-transition: all 0.3s ease-out 0s;
+            -ms-transition: all 0.3s ease-out 0s;
+            -o-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+        }
+        .sticky .navbar {
+            padding: 10px 0;
+        }
+
+        .navbar {
+            padding: 0;
+            border-radius: 5px;
+            position: relative;
+            -webkit-transition: all 0.3s ease-out 0s;
+            -moz-transition: all 0.3s ease-out 0s;
+            -ms-transition: all 0.3s ease-out 0s;
+            -o-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+            padding: 35px 0;
+        }
+
+        .navbar-brand {
+            padding: 0;
+        }
+        .navbar-brand img {
+            max-width: 150px;
+        }
+
+        .navbar-toggler {
+            padding: 0;
+        }
+        .navbar-toggler .toggler-icon {
+            width: 30px;
+            height: 2px;
+            background-color: #222;
+            display: block;
+            margin: 5px 0;
+            position: relative;
+            -webkit-transition: all 0.3s ease-out 0s;
+            -moz-transition: all 0.3s ease-out 0s;
+            -ms-transition: all 0.3s ease-out 0s;
+            -o-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+        }
+        .navbar-toggler.active .toggler-icon:nth-of-type(1) {
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+            top: 7px;
+        }
+        .navbar-toggler.active .toggler-icon:nth-of-type(2) {
+            opacity: 0;
+        }
+        .navbar-toggler.active .toggler-icon:nth-of-type(3) {
+            -webkit-transform: rotate(135deg);
+            -moz-transform: rotate(135deg);
+            -ms-transform: rotate(135deg);
+            -o-transform: rotate(135deg);
+            transform: rotate(135deg);
+            top: -7px;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            .navbar-collapse {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                z-index: 9;
+                -webkit-box-shadow: 0px 15px 20px 0px rgba(0, 0, 0, 0.1);
+                -moz-box-shadow: 0px 15px 20px 0px rgba(0, 0, 0, 0.1);
+                box-shadow: 0px 15px 20px 0px rgba(0, 0, 0, 0.1);
+                padding: 5px 12px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .navbar-collapse {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                z-index: 9;
+                -webkit-box-shadow: 0px 15px 20px 0px rgba(56, 66, 77, 0.1);
+                -moz-box-shadow: 0px 15px 20px 0px rgba(56, 66, 77, 0.1);
+                box-shadow: 0px 15px 20px 0px rgba(56, 66, 77, 0.1);
+                padding: 5px 12px;
+            }
+        }
+
+        .navbar-nav .nav-item {
+            margin-left: 45px;
+            position: relative;
+        }
+        .navbar-nav .nav-item:first-child {
+            margin-left: 0;
+        }
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+            .navbar-nav .nav-item {
+                margin-left: 30px;
+            }
+        }
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            .navbar-nav .nav-item {
+                margin: 0;
+            }
+        }
+        @media (max-width: 767px) {
+            .navbar-nav .nav-item {
+                margin: 0;
+            }
+        }
+        .navbar-nav .nav-item a {
+            font-size: 16px;
+            font-weight: 600;
+            color: #38424d;
+            -webkit-transition: all 0.3s ease-out 0s;
+            -moz-transition: all 0.3s ease-out 0s;
+            -ms-transition: all 0.3s ease-out 0s;
+            -o-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+            position: relative;
+        }
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            .navbar-nav .nav-item a {
+                display: block;
+                padding: 4px 0;
+            }
+        }
+        @media (max-width: 767px) {
+            .navbar-nav .nav-item a {
+                display: block;
+                padding: 4px 0;
+            }
+        }
+        .navbar-nav .nav-item.active > a,
+        .navbar-nav .nav-item:hover > a {
+            color: #0898e7;
+        }
+        .navbar-nav .nav-item:hover .sub-menu {
+            top: 100%;
+            opacity: 1;
+            visibility: visible;
+        }
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            .navbar-nav .nav-item:hover .sub-menu {
+                top: 0;
+            }
+        }
+        @media (max-width: 767px) {
+            .navbar-nav .nav-item:hover .sub-menu {
+                top: 0;
+            }
+        }
+        .navbar-nav .nav-item .sub-menu {
+            width: 200px;
+            background-color: #fff;
+            -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+            -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 110%;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            -webkit-transition: all 0.3s ease-out 0s;
+            -moz-transition: all 0.3s ease-out 0s;
+            -ms-transition: all 0.3s ease-out 0s;
+            -o-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+        }
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            .navbar-nav .nav-item .sub-menu {
+                position: relative;
+                width: 100%;
+                top: 0;
+                display: none;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        @media (max-width: 767px) {
+            .navbar-nav .nav-item .sub-menu {
+                position: relative;
+                width: 100%;
+                top: 0;
+                display: none;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        .navbar-nav .nav-item .sub-menu li {
+            display: block;
+        }
+        .navbar-nav .nav-item .sub-menu li a {
+            display: block;
+            padding: 8px 20px;
+            color: #222;
+        }
+        .navbar-nav .nav-item .sub-menu li a.active,
+        .navbar-nav .nav-item .sub-menu li a:hover {
+            padding-left: 25px;
+            color: #0898e7;
+        }
+
+        .navbar-nav .sub-nav-toggler {
+            display: none;
+        }
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            .navbar-nav .sub-nav-toggler {
+                display: block;
+                position: absolute;
+                right: 0;
+                top: 0;
+                background: none;
+                color: #222;
+                font-size: 18px;
+                border: 0;
+                width: 30px;
+                height: 30px;
+            }
+        }
+        @media (max-width: 767px) {
+            .navbar-nav .sub-nav-toggler {
+                display: block;
+                position: absolute;
+                right: 0;
+                top: 0;
+                background: none;
+                color: #222;
+                font-size: 18px;
+                border: 0;
+                width: 30px;
+                height: 30px;
+            }
+        }
+        .navbar-nav .sub-nav-toggler span {
+            width: 8px;
+            height: 8px;
+            border-left: 1px solid #222;
+            border-bottom: 1px solid #222;
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            position: relative;
+            top: -5px;
+        }
+
+        /*===== HEADER HERO =====*/
+        .header-hero {
+            background-color: #000000;
+            position: relative;
+            z-index: 5;
+            background-position: bottom center;
+            height: 800px;
+        }
+        @media only screen and (min-width: 1400px) {
+            .header-hero {
+                height: 900px;
+            }
+        }
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            .header-hero {
+                height: auto;
+            }
+        }
+        @media (max-width: 767px) {
+            .header-hero {
+                height: auto;
+            }
+        }
+        .header-hero .shape {
+            position: absolute;
+        }
+        .header-hero .shape.shape-1 {
+            width: 75px;
+            height: 75px;
+            background: -webkit-linear-gradient(
+                rgba(254, 132, 100, 0.5) 0%,
+                rgba(254, 110, 154, 0.5) 100%
+            );
+            background: -o-linear-gradient(
+                rgba(254, 132, 100, 0.5) 0%,
+                rgba(254, 110, 154, 0.5) 100%
+            );
+            background: linear-gradient(
+                rgba(254, 132, 100, 0.5) 0%,
+                rgba(254, 110, 154, 0.5) 100%
+            );
+            border-radius: 50%;
+            left: 130px;
+            top: 25%;
+            -webkit-animation: animation1 2s linear infinite;
+            -moz-animation: animation1 2s linear infinite;
+            -o-animation: animation1 2s linear infinite;
+            animation: animation1 2s linear infinite;
+        }
+        .header-hero .shape.shape-2 {
+            width: 39px;
+            height: 39px;
+            background: -webkit-linear-gradient(
+                rgba(51, 200, 193, 0.5) 0%,
+                rgba(17, 155, 210, 0.5) 100%
+            );
+            background: -o-linear-gradient(
+                rgba(51, 200, 193, 0.5) 0%,
+                rgba(17, 155, 210, 0.5) 100%
+            );
+            background: linear-gradient(
+                rgba(51, 200, 193, 0.5) 0%,
+                rgba(17, 155, 210, 0.5) 100%
+            );
+            left: 150px;
+            bottom: 40px;
+            border-radius: 50%;
+            -webkit-animation: animation1 2s linear infinite;
+            -moz-animation: animation1 2s linear infinite;
+            -o-animation: animation1 2s linear infinite;
+            animation: animation1 2s linear infinite;
+        }
+        .header-hero .shape.shape-3 {
+            width: 19px;
+            height: 19px;
+            background: -webkit-linear-gradient(
+                rgba(54, 28, 193, 0.5) 0%,
+                rgba(46, 130, 239, 0.5) 100%
+            );
+            background: -o-linear-gradient(
+                rgba(54, 28, 193, 0.5) 0%,
+                rgba(46, 130, 239, 0.5) 100%
+            );
+            background: linear-gradient(
+                rgba(54, 28, 193, 0.5) 0%,
+                rgba(46, 130, 239, 0.5) 100%
+            );
+            bottom: 25%;
+            left: 26%;
+            border-radius: 50%;
+            -webkit-animation: animation1 2s linear infinite;
+            -moz-animation: animation1 2s linear infinite;
+            -o-animation: animation1 2s linear infinite;
+            animation: animation1 2s linear infinite;
+        }
+        .header-hero .shape.shape-4 {
+            background-color: rgba(226, 158, 25, 0.55);
+            width: 39px;
+            height: 39px;
+            border-radius: 50%;
+            top: 175px;
+            left: 40%;
+            -webkit-animation: animation1 2s linear infinite;
+            -moz-animation: animation1 2s linear infinite;
+            -o-animation: animation1 2s linear infinite;
+            animation: animation1 2s linear infinite;
+        }
+        .header-hero .shape.shape-5 {
+            width: 19px;
+            height: 19px;
+            background-color: rgba(108, 99, 255, 0.55);
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+            bottom: 20%;
+            border-radius: 50%;
+            -webkit-animation: animation1 2s linear infinite;
+            -moz-animation: animation1 2s linear infinite;
+            -o-animation: animation1 2s linear infinite;
+            animation: animation1 2s linear infinite;
+        }
+        .header-hero .shape.shape-6 {
+            width: 14px;
+            height: 14px;
+            background-color: rgba(235, 163, 26, 0.55);
+            border-radius: 50%;
+            left: 45%;
+            bottom: 70px;
+            -webkit-animation: animation1 2s linear infinite;
+            -moz-animation: animation1 2s linear infinite;
+            -o-animation: animation1 2s linear infinite;
+            animation: animation1 2s linear infinite;
+        }
+
+        .header-shape-1 {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            right: 0;
+            z-index: -1;
+            background-image: url(../images/header-shape-1.svg);
+            background-position: left center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            .header-shape-1 {
+                width: 100%;
+            }
+        }
+
+        .header-shape-2 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: -1;
+        }
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+            .header-shape-2 img {
+                width: 295px;
+            }
+        }
+
+        .header-hero-content {
+            position: relative;
+            z-index: 9;
+        }
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            .header-hero-content {
+                padding-top: 150px;
+            }
+        }
+        @media (max-width: 767px) {
+            .header-hero-content {
+                padding-top: 120px;
+            }
+        }
+        .header-hero-content .header-title {
+            font-size: 42px;
+            color: #38424d;
+        }
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+            .header-hero-content .header-title {
+                font-size: 36px;
+            }
+        }
+        @media (max-width: 767px) {
+            .header-hero-content .header-title {
+                font-size: 22px;
+            }
+        }
+        @media only screen and (min-width: 576px) and (max-width: 767px) {
+            .header-hero-content .header-title {
+                font-size: 38px;
+            }
+        }
+        .header-hero-content .header-title span {
+            display: contents;
+            color: #0898e7;
+        }
+        .header-hero-content .text {
+            margin-top: 30px;
+        }
+        .header-hero-content ul {
+            margin-top: 30px;
+        }
+        .header-hero-content ul li {
+            margin-left: 50px;
+        }
+        .header-hero-content ul li:first-child {
+            margin-left: 0;
+        }
+        .header-hero-content .main-btn {
+            margin-top: 10px;
+        }
+        .header-hero-content .header-video {
+            margin-top: 15px;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 50%;
+            background-color: #0898e7;
+            position: relative;
+            z-index: 5;
+        }
+        .header-hero-content .header-video::before {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: rgba(8, 152, 231, 0.8);
+            top: 0;
+            left: 0;
+            -webkit-animation: video 2s linear infinite;
+            -moz-animation: video 2s linear infinite;
+            -o-animation: video 2s linear infinite;
+            animation: video 2s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes video {
+            0% {
+                -webkit-transform: scale(1);
+                -moz-transform: scale(1);
+                -ms-transform: scale(1);
+                -o-transform: scale(1);
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                -webkit-transform: scale(1.4);
+                -moz-transform: scale(1.4);
+                -ms-transform: scale(1.4);
+                -o-transform: scale(1.4);
+                transform: scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        @-webkit-keyframes video {
+            0% {
+                -webkit-transform: scale(1);
+                -moz-transform: scale(1);
+                -ms-transform: scale(1);
+                -o-transform: scale(1);
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                -webkit-transform: scale(1.4);
+                -moz-transform: scale(1.4);
+                -ms-transform: scale(1.4);
+                -o-transform: scale(1.4);
+                transform: scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        .header-image {
+            padding-top: 80px;
+            position: relative;
+            z-index: 5;
+        }
+        .header-image .image {
+            width: 100%;
+        }
+        .header-image .image-shape {
+            position: absolute;
+            bottom: -100px;
+            left: -115px;
+            z-index: -1;
+        }
+        @media (max-width: 767px) {
+            .header-image .image-shape {
+                left: -90px;
+            }
+        }
+        .header-image .image-shape img {
+            max-width: 350px;
+        }
+        @media (max-width: 767px) {
+            .header-image .image-shape img {
+                max-width: 250px;
+            }
+        }
+    </style>
+    <body>
+        <!-- Here Sidebar Begins -->
+        <div class="container-scroller">
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <div
+                    class="text-center sidebar-brand-wrapper d-flex align-items-center"
+                >
+                    <a class="sidebar-brand brand-logo" href="/">
+                        <img
+                            src="{{ url_for('static', filename='images/dummy.png') }}"
+                            alt="ArtiVerse"
+                            width="112"
+                            height="112"
+                        />
+                    </a>
+                    <a
+                        class="sidebar-brand brand-logo-mini pl-4 pt-3"
+                        href="index.html"
+                    >
+                        <img
+                            src="static/Gen/assets/images/logo-mini.svg"
+                            alt="logo"
+                        />
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li class="nav-item nav-profile">
+                        <span><br /></span>
+                    </li>
+                    <li class="nav-item">
+                        <h1 class="text-center">Text-to-Image Generation</h1>
+                        <form action="/generate" method="POST">
+                            <div class="form-group">
+                                <label for="prompt">Prompt:</label>
+                                <textarea
+                                    class="form-control"
+                                    id="prompt"
+                                    name="prompt"
+                                    rows="4"
+                                    cols="50"
+                                    required
+                                ></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="cfg_scale"
+                                    >cfg_scale:
+                                    <span id="cfg_scale_value">7</span></label
+                                >
+                                <input
+                                    type="range"
+                                    class="form-control-range"
+                                    id="cfg_scale"
+                                    name="cfg_scale"
+                                    min="0"
+                                    max="35"
+                                    value="7"
+                                    oninput="document.getElementById('cfg_scale_value').textContent = this.value;"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="clip_guidance_preset"
+                                    >clip_guidance_preset:</label
+                                >
+                                <select
+                                    class="form-control"
+                                    id="clip_guidance_preset"
+                                    name="clip_guidance_preset"
+                                >
+                                    <option value="FAST_BLUE">FAST_BLUE</option>
+                                    <option value="FAST_GREEN">
+                                        FAST_GREEN
+                                    </option>
+                                    <option value="NONE">NONE</option>
+                                    <option value="SIMPLE">SIMPLE</option>
+                                    <option value="SLOW">SLOW</option>
+                                    <option value="SLOWER">SLOWER</option>
+                                    <option value="SLOWEST">SLOWEST</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="height"
+                                    >Height:
+                                    <span id="height_value">512</span></label
+                                >
+                                <input
+                                    type="range"
+                                    class="form-control-range"
+                                    id="height"
+                                    name="height"
+                                    min="128"
+                                    max="1024"
+                                    step="64"
+                                    value="512"
+                                    oninput="document.getElementById('height_value').textContent = this.value;"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="width"
+                                    >Width:
+                                    <span id="width_value">512</span></label
+                                >
+                                <input
+                                    type="range"
+                                    class="form-control-range"
+                                    id="width"
+                                    name="width"
+                                    min="128"
+                                    max="1024"
+                                    step="64"
+                                    value="512"
+                                    oninput="document.getElementById('width_value').textContent = this.value;"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="samples"
+                                    >Samples:
+                                    <span id="samples_value">1</span></label
+                                >
+                                <input
+                                    type="range"
+                                    class="form-control-range"
+                                    id="samples"
+                                    name="samples"
+                                    min="1"
+                                    max="10"
+                                    value="1"
+                                    oninput="document.getElementById('samples_value').textContent = this.value;"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="steps"
+                                    >Steps:
+                                    <span id="steps_value">30</span></label
+                                >
+                                <input
+                                    type="range"
+                                    class="form-control-range"
+                                    id="steps"
+                                    name="steps"
+                                    min="10"
+                                    max="150"
+                                    value="30"
+                                    oninput="document.getElementById('steps_value').textContent = this.value;"
+                                />
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    Generate
+                                </button>
+                            </div>
+                            <br />
+                            <div class="text-center">
+                                <a
+                                    href="https://supagruen.github.io/StableDiffusion-CheatSheet/"
+                                    target="_blank"
+                                    class="btn btn-primary"
+                                >
+                                    Prompt Examples
+                                </a>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Here Main-panel Begins -->
+
+            <!-- <div class="main-panel"> -->
+            <!-- <a href="#">
+                    <h1>ArtiVerse</h1>
+                </a> -->
+            <div class="content-wrapper pb-0">
+                <div class="page-header flex-wrap">
+                    <!-- ADD GENERATED IMAGES HERE -->
+                    <div class="row justify-content-center">
+                        {% for image in images %}
+                        <div class="col-md-6">
+                            <div class="card mb-4 shadow-sm">
+                                <img
+                                    class="card-img-top"
+                                    src="data:image/png;base64,{{ image|b64encode }}"
+                                    alt="Generated Image"
+                                />
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <a
+                                            class="btn btn-primary"
+                                            href="data:image/png;base64,{{ image|b64encode }}"
+                                            download="generated_image.png"
+                                        >
+                                            Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- main-panel ends -->
+                </div>
+                <!-- page-body-wrapper ends -->
+            </div>
+
+            <!-- main-panel ends -->
+            <!-- </div> -->
+
+            <!-- page-body-wrapper ends -->
+        </div>
+        <!-- container-scroller -->
+        <!-- plugins:js -->
+        <script src="static/Gen/assets/vendors/js/vendor.bundle.base.js"></script>
+        <!-- endinject -->
+
+        <!-- Custom js for this page -->
+        <script src="static/Gen/assets/js/dashboard.js"></script>
+        <!-- End custom js for this page -->
+    </body>
+</html>

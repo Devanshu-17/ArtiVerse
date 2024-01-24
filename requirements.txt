@@ -1,0 +1,8 @@
+Flask
+pdoc
+langchain
+python-dotenv
+langchain
+requests
+openai
+gunicorn

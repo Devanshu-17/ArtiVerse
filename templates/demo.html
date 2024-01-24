@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ArtiVerse</title>
+
+        <!-- Meta Tags -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="shortcut icon"
+            href="{{ url_for('static',
+            filename='/images/side.png') }}"
+            type="image/png"
+        />
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+            integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+            integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+            crossorigin="anonymous"
+        />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{ url_for('static', filename='styles/chat.css') }}"
+        />
+
+        <!-- Custom CSS -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{ url_for('static', filename='styles/chat.css') }}"
+        />
+    </head>
+
+    <!-- Header -->
+
+    <header class="site-header">
+        <div class="container">
+            <div class="site-header-inner">
+                <div class="brand header-brand">
+                    <h1 class="m-0">
+                        <a href="{{ url_for('home') }}">
+                            <title>ArtiVerse</title>
+                            <img
+                                src="{{ url_for('static',
+                                filename='/images/side.png') }}"
+                                alt="ArtiVerse"
+                                width="112"
+                                height="112"
+                            />
+                        </a>
+                        <a href="/demo">
+                            <span style="color: aliceblue; padding-left: 180px">
+                                Content
+                            </span>
+                        </a>
+                        <a href="/generate">
+                            <span style="color: aliceblue; padding-left: 250px">
+                                Image
+                            </span>
+                        </a>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+
+    <!-- Main Content -->
+
+    <body>
+        <div class="container-fluid h-100">
+            <div class="row justify-content-center h-100">
+                <div class="col-md-8 col-xl-6 chat">
+                    <div class="card">
+                        <div class="card-header msg_head">
+                            <div class="d-flex bd-highlight">
+                                <div class="img_cont">
+                                    <img
+                                        src="https://i.ibb.co/fSNP7Rz/icons8-chatgpt-512.png"
+                                        class="rounded-circle user_img"
+                                    />
+                                    <span class="online_icon"></span>
+                                </div>
+                                <div class="user_info">
+                                    <span>ArtiVerse</span>
+                                    <p>Ask me anything!</p>
+                                </div>
+                                <div class="ml-auto">
+                                    <div class="btn-group">
+                                        <button
+                                            class="btn btn-link export-button"
+                                            id="exportButton"
+                                            type="button"
+                                            title="Export"
+                                        >
+                                            <i class="fas fa-file-export"></i>
+                                        </button>
+                                        <div class="dropdown">
+                                            <button
+                                                class="btn btn-link dropdown-toggle"
+                                                type="button"
+                                                id="languageDropdown"
+                                                data-toggle="dropdown"
+                                                aria-haspopup="true"
+                                                aria-expanded="false"
+                                            >
+                                                <h7>Languages</h7>
+                                            </button>
+                                            <div
+                                                class="dropdown-menu dropdown-menu-right"
+                                                aria-labelledby="languageDropdown"
+                                            >
+                                                <a
+                                                    class="dropdown-item language-option"
+                                                    href="#"
+                                                    data-language="ENGLISH"
+                                                    >ENGLISH</a
+                                                >
+                                                <a
+                                                    class="dropdown-item language-option"
+                                                    href="#"
+                                                    data-language="FRENCH"
+                                                    >FRENCH</a
+                                                >
+                                                <a
+                                                    class="dropdown-item language-option"
+                                                    href="#"
+                                                    data-language="RUSSIAN"
+                                                    >RUSSIAN</a
+                                                >
+                                                <a
+                                                    class="dropdown-item language-option"
+                                                    href="#"
+                                                    data-language="INDIAN"
+                                                    >INDIAN</a
+                                                >
+                                                <a
+                                                    class="dropdown-item language-option"
+                                                    href="#"
+                                                    data-language="JAPANESE"
+                                                    >JAPANESE</a
+                                                >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            id="messageFormeight"
+                            class="card-body msg_card_body"
+                        ></div>
+                        <div class="card-footer">
+                            <form id="messageArea" class="input-group">
+                                <input
+                                    type="text"
+                                    id="text"
+                                    name="msg"
+                                    placeholder="Type your message..."
+                                    autocomplete="off"
+                                    class="form-control type_msg"
+                                    required
+                                />
+                                <div class="input-group-append">
+                                    <button
+                                        type="button"
+                                        id="refresh"
+                                        class="input-group-text refresh_btn color1"
+                                    >
+                                        <i class="fas fa-redo"></i>
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        id="trash"
+                                        class="input-group-text trash_btn"
+                                    >
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <button
+                                        type="submit"
+                                        id="send"
+                                        class="input-group-text send_btn"
+                                    >
+                                        <i class="fas fa-location-arrow"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Font Awesome library -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        />
+
+        <script>
+            window.jsPDF = window.jspdf.jsPDF
+
+            $(document).ready(function () {
+                var str_time
+                var chatHistory = [] // Array to store the chat history
+
+                // Retrieve the message from the query parameter
+                const urlParams = new URLSearchParams(window.location.search)
+                const message = urlParams.get('msg')
+
+                // Send the initial message to AI
+                sendMessageToAI(message)
+
+                // Send message
+                $('#messageArea').on('submit', function (event) {
+                    const date = new Date()
+                    const hour = date.getHours()
+                    const minute = date.getMinutes()
+                    str_time = hour + ':' + minute
+                    var rawText = $('#text').val()
+
+                    var userHtml =
+                        '<div class="d-flex justify-content-end mb-4"><div class="msg_cotainer_send">' +
+                        rawText +
+                        '<span class="msg_time_send">' +
+                        str_time +
+                        '</span></div><div class="img_cont_msg"><img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"></div></div>'
+
+                    $('#text').val('')
+                    $('#messageFormeight').append(userHtml)
+
+                    // Store user message in chat history
+                    chatHistory.push({
+                        sender: 'user',
+                        message: rawText,
+                        time: str_time,
+                    })
+
+                    // Send message to AI
+                    sendMessageToAI(rawText)
+
+                    event.preventDefault()
+                })
+
+                // Function to send message to AI and handle the response
+                function sendMessageToAI(message) {
+                    $.ajax({
+                        data: {
+                            msg: message,
+                        },
+                        type: 'POST',
+                        url: '/get',
+                        success: function (response) {
+                            var botHtml =
+                                '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="https://i.ibb.co/fSNP7Rz/icons8-chatgpt-512.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' +
+                                response.response +
+                                '<span class="msg_time">' +
+                                str_time +
+                                '</span></div></div>'
+                            $('#messageFormeight').append($.parseHTML(botHtml))
+
+                            // Store AI's response in chat history
+                            chatHistory.push({
+                                sender: 'AI',
+                                message: response.response,
+                                time: str_time,
+                            })
+                        },
+                        error: function (xhr, status, error) {
+                            console.log(xhr.responseText)
+                        },
+                    })
+                }
+
+                // Language selection
+                $('.language-option').on('click', function () {
+                    var selectedLanguage = $(this).data('language')
+
+                    $.ajax({
+                        data: {
+                            msg:
+                                'I want you to talk with me in ' +
+                                selectedLanguage +
+                                '. All your replies should be in ' +
+                                selectedLanguage +
+                                '. If you understand, reply to me by saying "' +
+                                selectedLanguage +
+                                ' has been set for this conversation"',
+                        },
+                        type: 'POST',
+                        url: '/get',
+                        success: function (response) {
+                            var botHtml =
+                                '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="https://i.ibb.co/fSNP7Rz/icons8-chatgpt-512.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' +
+                                response.response +
+                                '<span class="msg_time">' +
+                                str_time + // Access the str_time variable here
+                                '</span></div></div>'
+                            $('#messageFormeight').append($.parseHTML(botHtml))
+
+                            // Store AI's response in chat history
+                            chatHistory.push({
+                                sender: 'AI',
+                                message: response.response,
+                                time: str_time,
+                            })
+                        },
+                        error: function (xhr, status, error) {
+                            console.log(xhr.responseText)
+                        },
+                    })
+                })
+
+                // Toggle dropdown menu
+                $('.dropdown-toggle').on('click', function () {
+                    $(this).siblings('.dropdown-menu').toggleClass('show')
+                })
+
+                // Close dropdown menu when clicking outside
+                $(document).on('click', function (event) {
+                    var target = $(event.target)
+                    if (!target.closest('.dropdown').length) {
+                        $('.dropdown-menu').removeClass('show')
+                    }
+                })
+
+                // Refresh button
+                $('#refresh').on('click', function () {
+                    if (chatHistory.length > 0) {
+                        var lastUserMessage =
+                            chatHistory[chatHistory.length - 1].message
+                        sendMessageToAI(lastUserMessage)
+                    }
+                })
+
+                // Clear screen
+                $('#trash').on('click', function () {
+                    $('#messageFormeight').empty()
+                    chatHistory = [] // Clear chat history when clearing the screen
+                })
+
+                // Export chat as PDF
+                $('#exportButton').on('click', function () {
+                    var doc = new jsPDF()
+                    var y = 10
+
+                    for (var i = 0; i < chatHistory.length; i++) {
+                        var message = chatHistory[i]
+                        var sender = message.sender === 'user' ? 'You' : 'AI'
+                        var text =
+                            '[' +
+                            message.time +
+                            '] ' +
+                            sender +
+                            ': ' +
+                            message.message
+
+                        doc.text(10, y, text)
+                        y += 10
+                    }
+
+                    doc.save('chat_history.pdf')
+                })
+            })
+        </script>
+    </body>
+
+    <!-- Footer -->
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="site-footer-inner has-top-divider">
+                <div class="brand footer-brand">
+                    <a href="#">
+                        <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 32 32"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <title>ArtiVerse</title>
+                            <defs>
+                                <linearGradient
+                                    x1="0%"
+                                    y1="100%"
+                                    x2="50%"
+                                    y2="0%"
+                                    id="logo-footer-a"
+                                >
+                                    <stop
+                                        stop-color="#F9425F"
+                                        stop-opacity=".8"
+                                        offset="0%"
+                                    />
+                                    <stop
+                                        stop-color="#47A1F9"
+                                        stop-opacity=".16"
+                                        offset="100%"
+                                    />
+                                </linearGradient>
+                                <linearGradient
+                                    x1="50%"
+                                    y1="100%"
+                                    x2="50%"
+                                    y2="0%"
+                                    id="logo-footer-b"
+                                >
+                                    <stop stop-color="#FDFFDA" offset="0%" />
+                                    <stop
+                                        stop-color="#F97059"
+                                        stop-opacity=".798"
+                                        offset="49.935%"
+                                    />
+                                    <stop
+                                        stop-color="#F9425F"
+                                        stop-opacity="0"
+                                        offset="100%"
+                                    />
+                                </linearGradient>
+                            </defs>
+                            <g fill="none" fill-rule="evenodd">
+                                <path
+                                    d="M22 19.22c6.627 0 9.593-6.415 9.593-13.042C31.593-.45 28.627.007 22 .007S10 2.683 10 9.31c0 6.628 5.373 9.91 12 9.91z"
+                                    fill="url(#logo-footer-a)"
+                                />
+                                <path
+                                    d="M13.666 31.889c7.547 0 10.924-7.307 10.924-14.854 0-7.547-3.377-7.027-10.924-7.027C6.118 10.008 0 13.055 0 20.603c0 7.547 6.118 11.286 13.666 11.286z"
+                                    fill="url(#logo-footer-b)"
+                                    transform="matrix(-1 0 0 1 24.59 0)"
+                                />
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+                <ul class="footer-links list-reset">
+                    <li>
+                        <a href="https://www.ambilio.com/">Contact</a>
+                    </li>
+                    <li>
+                        <a href="https://www.ambilio.com/">About us</a>
+                    </li>
+                    <li>
+                        <a href="https://www.ambilio.com/">FAQ's</a>
+                    </li>
+                    <li>
+                        <a href="https://www.ambilio.com/">Support</a>
+                    </li>
+                </ul>
+                <ul class="footer-social-links list-reset">
+                    <li>
+                        <a href="https://www.ambilio.com/">
+                            <span class="screen-reader-text">Facebook</span>
+                            <svg
+                                width="16"
+                                height="16"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M6.023 16L6 9H3V6h3V4c0-2.7 1.672-4 4.08-4 1.153 0 2.144.086 2.433.124v2.821h-1.67c-1.31 0-1.563.623-1.563 1.536V6H13l-1 3H9.28v7H6.023z"
+                                    fill="#FFF"
+                                />
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.ambilio.com/">
+                            <span class="screen-reader-text">Twitter</span>
+                            <svg
+                                width="16"
+                                height="16"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M16 3c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1-1.7 0-3.2 1.5-3.2 3.3 0 .3 0 .5.1.7-2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4C.7 7.7 1.8 9 3.3 9.3c-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3-1.1.9-2.5 1.4-4.1 1.4H0c1.5.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3v-.4C15 4.3 15.6 3.7 16 3z"
+                                    fill="#FFF"
+                                />
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.ambilio.com/">
+                            <span class="screen-reader-text">Google</span>
+                            <svg
+                                width="16"
+                                height="16"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M7.9 7v2.4H12c-.2 1-1.2 3-4 3-2.4 0-4.3-2-4.3-4.4 0-2.4 2-4.4 4.3-4.4 1.4 0 2.3.6 2.8 1.1l1.9-1.8C11.5 1.7 9.9 1 8 1 4.1 1 1 4.1 1 8s3.1 7 7 7c4 0 6.7-2.8 6.7-6.8 0-.5 0-.8-.1-1.2H7.9z"
+                                    fill="#FFF"
+                                />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+                <div class="footer-copyright">
+                    &copy; 2023 Ambilio, all rights reserved
+                </div>
+            </div>
+        </div>
+    </footer>
+</html>

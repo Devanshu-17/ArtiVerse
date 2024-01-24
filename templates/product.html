@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <!--====== Title ======-->
+        <title>ArtiVerse Products</title>
+
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!--====== Favicon Icon ======-->
+        <link
+            rel="shortcut icon"
+            href="{{ url_for('static',
+            filename='/images/side.png') }}"
+            type="image/png"
+        />
+
+        <!--====== Animate CSS ======-->
+        <!-- <link rel="stylesheet" href="Pro/assets/css/animate.css" /> -->
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='Pro/assets/css/animate.css') }}"
+        />
+        <!--====== lineicons CSS ======-->
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='Pro/assets/css/lineicons.css') }}"
+        />
+        <!-- <link rel="stylesheet" href="Pro/assets/css/lineicons.css" /> -->
+
+        <!--====== Bootstrap CSS ======-->
+        <!-- <link rel="stylesheet" href="Pro/assets/css/bootstrap.min.css" /> -->
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='Pro/assets/css/bootstrap.min.css') }}"
+        />
+
+        <!--====== Default CSS ======-->
+        <!-- <link rel="stylesheet" href="Pro/assets/css/default.css" /> -->
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='Pro/assets/css/default.css') }}"
+        />
+
+        <!--====== Style CSS ======-->
+        <!-- <link rel="stylesheet" href="Pro/assets/css/style.css" /> -->
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='Pro/assets/css/style.css') }}"
+        />
+    </head>
+
+    <body>
+        <!--[if IE]>
+            <p class="browserupgrade">
+                You are using an <strong>outdated</strong> browser. Please
+                <a href="https://browsehappy.com/">upgrade your browser</a> to
+                improve your experience and security.
+            </p>
+        <![endif]-->
+
+        <!--====== PRELOADER PART START ======-->
+
+        <!-- <div class="preloader">
+            <div class="loader">
+                <div class="ytp-spinner">
+                    <div class="ytp-spinner-container">
+                        <div class="ytp-spinner-rotator">
+                            <div class="ytp-spinner-left">
+                                <div class="ytp-spinner-circle"></div>
+                            </div>
+                            <div class="ytp-spinner-right">
+                                <div class="ytp-spinner-circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!--====== PRELOADER PART ENDS ======-->
+
+        <!--====== HEADER PART START ======-->
+
+        <header class="header-area">
+            <div class="navbar-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <nav class="navbar navbar-expand-lg">
+                                <a class="navbar-brand" href="/">
+                                    <img
+                                        src="{{ url_for('static',
+                                    filename='/images/side.png') }}"
+                                        alt="Logo"
+                                    />
+                                </a>
+                                <button
+                                    class="navbar-toggler"
+                                    type="button"
+                                    data-toggle="collapse"
+                                    data-target="#navbarSupportedContent"
+                                    aria-controls="navbarSupportedContent"
+                                    aria-expanded="false"
+                                    aria-label="Toggle navigation"
+                                >
+                                    <span class="toggler-icon"></span>
+                                    <span class="toggler-icon"></span>
+                                    <span class="toggler-icon"></span>
+                                </button>
+
+                                <div
+                                    class="collapse navbar-collapse sub-menu-bar"
+                                    id="navbarSupportedContent"
+                                >
+                                    <ul id="nav" class="navbar-nav ml-auto">
+                                        <li class="nav-item active">
+                                            <a class="page-scroll" href="/"
+                                                >Home</a
+                                            >
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a
+                                                class="page-scroll"
+                                                href="/generate"
+                                                >Image Generator</a
+                                            >
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a class="page-scroll" href="/demo"></a>
+                                                Content Generator
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- navbar collapse -->
+                            </nav>
+                            <!-- navbar -->
+                        </div>
+                    </div>
+                    <!-- row -->
+                </div>
+                <!-- container -->
+            </div>
+            <!-- navbar area -->
+
+            <div
+                id="home"
+                class="header-hero bg_cover d-lg-flex align-items-center"
+            >
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+                <div class="shape shape-6"></div>
+
+                <div class="container">
+                    <div
+                        class="row align-items-center justify-content-center justify-content-lg-between"
+                    >
+                        <div class="col-lg-6 col-md-10">
+                            <div class="header-hero-content">
+                                <h3
+                                    class="header-title wow fadeInLeftBig"
+                                    data-wow-duration="1.3s"
+                                    data-wow-delay="0.2s"
+                                >
+                                    <span>Join the Revolution</span> at
+                                    ArtiVerse
+                                </h3>
+                                <p
+                                    class="text wow fadeInLeftBig"
+                                    data-wow-duration="1.3s"
+                                    data-wow-delay="0.6s"
+                                >
+                                    Enter the realm of boundless creativity with
+                                    ArtiVerse, the trailblazing content
+                                    generation agent. Harnessing the power of
+                                    AI, ArtiVerse crafts compelling and original
+                                    content across diverse mediums. Immerse your
+                                    audience with captivating storytelling,
+                                    awe-inspiring designs, and engage them like
+                                    never before. Unleash your creative
+                                    potential with ArtiVerse by your side.
+                                </p>
+                                <ul class="d-flex">
+                                    <li>
+                                        <a
+                                            href="/demo"
+                                            rel="nofollow"
+                                            class="main-btn wow fadeInLeftBig"
+                                            data-wow-duration="1.3s"
+                                            data-wow-delay="0.8s"
+                                            >Join Now</a
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- header hero content -->
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-10">
+                            <div class="header-image">
+                                <img
+                                    src="{{ url_for('static',
+                                filename='Pro/assets/images/header-app.png') }}"
+                                    alt="app"
+                                    class="image wow fadeInRightBig"
+                                    data-wow-duration="1.3s"
+                                    data-wow-delay="0.5s"
+                                />
+                                <div
+                                    class="image-shape wow fadeInRightBig"
+                                    data-wow-duration="1.3s"
+                                    data-wow-delay="0.8s"
+                                >
+                                    <!-- <img
+                                        src="{{ url_for('static',
+                                    filename='Pro/assets/images/image-shape.svg') }}"
+                                        alt="shape"
+                                    /> -->
+                                </div>
+                            </div>
+                            <!-- header image -->
+                        </div>
+                    </div>
+                    <!-- row -->
+                </div>
+                <!-- container -->
+                <div class="header-shape-1"></div>
+                <!-- header shape -->
+                <div class="header-shape-2">
+                    <!-- <img
+                        src="{{ url_for('static',
+                    filename='Pro/assets/images/header-shape-2.png') }}"
+                        alt="shape"
+                    /> -->
+                </div>
+                <!-- header shape -->
+            </div>
+            <!-- header hero -->
+        </header>
+
+        <!--====== HEADER PART ENDS ======-->
+
+        <!--====== ABOUT PART START ======-->
+
+        <section id="about" class="about-area pt-70 pb-120">
+            <h1
+                class="title"
+                style="padding-left: 35%; color: aliceblue"
+                id="features"
+            >
+                Our Key Features
+            </h1>
+
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div
+                            class="about-image mt-50 wow fadeInLeftBig"
+                            data-wow-duration="1.3s"
+                            data-wow-delay="0.5s"
+                        >
+                            <div class="about-shape"></div>
+                            <img
+                                class="app"
+                                src="{{ url_for('static',
+                                filename='Pro/assets/images/about-app.png') }}"
+                                alt="app"
+                            />
+                        </div>
+                        <!-- about image -->
+                    </div>
+                    <div class="col-lg-6">
+                        <div
+                            class="about-content mt-50 wow fadeInRightBig"
+                            data-wow-duration="1.3s"
+                            data-wow-delay="0.5s"
+                        >
+                            <div class="section-title">
+                                <h3 class="title">
+                                    Advertisement copy generation:
+                                </h3>
+                                <p class="text">
+                                    This feature could be used to generate
+                                    high-quality ad copy that is tailored to
+                                    specific audiences. This could help
+                                    businesses to increase their click-through
+                                    rates and sales.
+                                </p>
+                            </div>
+                            <!-- section title -->
+                            <a
+                                href="/demo?msg=You%20are%20a%20marketing%20manager%20for%20a%20small%20business.%20You%20are%20looking%20for%20a%20way%20to%20improve%20your%20click-through%20rates%20and%20sales.%20You%20have%20heard%20about%20a%20new%20feature%20that%20can%20generate%20high-quality%20ad%20copy%20that%20is%20tailored%20to%20specific%20audiences.%20You%20are%20interested%20in%20learning%20more%20about%20this%20feature%20and%20how%20it%20could%20help%20your%20business."
+                                rel="nofollow"
+                                class="main-btn"
+                                >Try Now</a
+                            >
+                        </div>
+
+                        <!-- about content -->
+                    </div>
+                </div>
+                <!-- row -->
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div
+                            class="about-image mt-50 wow fadeInLeftBig"
+                            data-wow-duration="1.3s"
+                            data-wow-delay="0.5s"
+                        >
+                            <div class="about-shape"></div>
+                            <img
+                                class="app"
+                                src="{{ url_for('static',
+                                filename='Pro/assets/images/about-app.png') }}"
+                                alt="app"
+                            />
+                        </div>
+                        <!-- about image -->
+                    </div>
+                    <div class="col-lg-6">
+                        <div
+                            class="about-content mt-50 wow fadeInRightBig"
+                            data-wow-duration="1.3s"
+                            data-wow-delay="0.5s"
+                        >
+                            <div class="section-title">
+                                <h3 class="title">
+                                    Market collateral generation
+                                </h3>
+                                <p class="text">
+                                    This feature could be used to generate
+                                    marketing materials, such as brochures,
+                                    flyers, and white papers. This could help
+                                    businesses to reach new customers and to
+                                    grow their business.
+                                </p>
+                            </div>
+                            <!-- section title -->
+                            <a
+                                href="/demo?msg=You%20are%20the%20marketing%20manager%20for%20a%20large%20company.%20You%20are%20responsible%20for%20creating%20marketing%20materials%20that%20will%20help%20the%20company%20reach%20its%20target%20audience.%20What%20types%20of%20marketing%20collateral%20do%20you%20think%20would%20be%20most%20effective%3F%20How%20would%20you%20tailor%20the%20content%20and%20design%20of%20the%20materials%20to%20the%20specific%20needs%20of%20your%20audience%3F"
+                                rel="nofollow"
+                                class="main-btn"
+                                >Try Now</a
+                            >
+                        </div>
+                        <!-- about content -->
+                    </div>
+                </div>
+                <!-- row -->
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div
+                            class="about-image mt-50 wow fadeInLeftBig"
+                            data-wow-duration="1.3s"
+                            data-wow-delay="0.5s"
+                        >
+                            <div class="about-shape"></div>
+                            <img
+                                class="app"
+                                src="{{ url_for('static',
+                                filename='Pro/assets/images/about-app.png') }}"
+                                alt="app"
+                            />
+                        </div>
+                        <!-- about image -->
+                    </div>
+                    <div class="col-lg-6">
+                        <div
+                            class="about-content mt-50 wow fadeInRightBig"
+                            data-wow-duration="1.3s"
+                            data-wow-delay="0.5s"
+                        >
+                            <div class="section-title">
+                                <h3 class="title">Assignment writing</h3>
+                                <p class="text">
+                                    This feature could be used to help students
+                                    write essays, research papers, and other
+                                    assignments. This could save students time
+                                    and help them to improve their grades.
+                                </p>
+                            </div>
+                            <!-- section title -->
+                            <!-- Add this button in the "product.html" page -->
+                            <a
+                                href="/demo?msg=The%20prompt%20is%20a%20request%20for%20help%20from%20an%20AI%20chatbot%20with%20assignment%20writing.%20The%20student%20is%20looking%20for%20help%20with%20generating%20ideas%2C%20brainstorming%20and%20outlining%2C%20providing%20feedback%2C%20and%20proofreading%20their%20assignments.%20The%20student%20hopes%20that%20the%20chatbot%20can%20help%20them%20save%20time%20and%20improve%20their%20grades.%0A%0AThe%20prompt%20includes%20additional%20details%20about%20the%20type%20of%20assignment%2C%20the%20topic%2C%20and%20the%20deadline.%20The%20more%20information%20the%20student%20can%20provide%2C%20the%20better%20the%20chatbot%20will%20be%20able%20to%20help."
+                                rel="nofollow"
+                                class="main-btn"
+                                >Try Now</a
+                            >
+                        </div>
+                        <!-- about content -->
+                    </div>
+                </div>
+                <!-- row -->
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div
+                            class="about-image mt-50 wow fadeInLeftBig"
+                            data-wow-duration="1.3s"
+                            data-wow-delay="0.5s"
+                        >
+                            <div class="about-shape"></div>
+                            <img
+                                class="app"
+                                src="{{ url_for('static',
+                                filename='Pro/assets/images/about-app.png') }}"
+                                alt="app"
+                            />
+                        </div>
+                        <!-- about image -->
+                    </div>
+                    <div class="col-lg-6">
+                        <div
+                            class="about-content mt-50 wow fadeInRightBig"
+                            data-wow-duration="1.3s"
+                            data-wow-delay="0.5s"
+                        >
+                            <div class="section-title">
+                                <h3 class="title">Customer service</h3>
+                                <p class="text">
+                                    This feature could be used to generate
+                                    responses to customer queries and
+                                    complaints. This could help businesses to
+                                    improve their customer satisfaction and to
+                                    reduce the workload on their customer
+                                    service representatives.
+                                </p>
+                            </div>
+                            <!-- section title -->
+                            <a
+                                href="/demo?msg=Request%20for%20help%20from%20an%20AI%20chatbot%20with%20customer%20service.%20The%20customer%20service%20representative%20is%20looking%20for%20help%20with%20generating%20clear%2C%20concise%2C%20and%20helpful%20responses%20to%20customer%20queries%20and%20complaints.%20The%20representative%20also%20hopes%20that%20the%20chatbot%20can%20help%20them%20to%20respond%20to%20customer%20queries%20in%20a%20timely%20manner%20and%20identify%20and%20resolve%20customer%20complaints.%20%0A%0AAdditional%20details%20about%20the%20type%20of%20customer%20queries%20or%20complaints%20the%20representative%20is%20most%20likely%20to%20receive%2C%20the%20industry%20they%20work%20in%2C%20the%20specific%20products%20or%20services%20they%20offer%2C%20and%20their%20company%27s%20policies%20and%20procedures%20will%20be%20provided%20during%20the%20chat."
+                                rel="nofollow"
+                                class="main-btn"
+                                >Try Now</a
+                            >
+                        </div>
+                        <!-- about content -->
+                    </div>
+                </div>
+                <!-- row -->
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div
+                            class="about-image mt-50 wow fadeInLeftBig"
+                            data-wow-duration="1.3s"
+                            data-wow-delay="0.5s"
+                        >
+                            <div class="about-shape"></div>
+                            <img
+                                class="app"
+                                src="{{ url_for('static',
+                                filename='Pro/assets/images/about-app.png') }}"
+                                alt="app"
+                            />
+                        </div>
+                        <!-- about image -->
+                    </div>
+                    <div class="col-lg-6">
+                        <div
+                            class="about-content mt-50 wow fadeInRightBig"
+                            data-wow-duration="1.3s"
+                            data-wow-delay="0.5s"
+                        >
+                            <div class="section-title">
+                                <h3 class="title">Content marketing</h3>
+                                <p class="text">
+                                    This feature could be used to generate blog
+                                    posts, articles, and other content that is
+                                    relevant to a business's target audience.
+                                    This could help businesses to attract new
+                                    customers and to build their brand.
+                                </p>
+                            </div>
+                            <!-- section title -->
+                            <a
+                                href="/demo?msg=Request%20for%20help%20from%20an%20AI%20chatbot%20with%20content%20marketing.%20The%20content%20marketer%20is%20looking%20for%20help%20with%20generating%20ideas%20for%20content%20that%20will%20resonate%20with%20their%20target%20audience,%20researching%20and%20writing%20content%20that%20is%20informative%20and%20engaging,%20and%20promoting%20their%20content%20to%20their%20target%20audience.%0A%0AThe%20marketer%20works%20in%20the%20[Industry]%20industry%20and%20offers%20[Products/Services].%0A%0ATheir%20target%20audience%20is%20[Description%20of%20Target%20Audience]."
+                                rel="nofollow"
+                                class="main-btn"
+                                >Try Now</a
+                            >
+                        </div>
+                        <!-- about content -->
+                    </div>
+                </div>
+                <!-- row -->
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div
+                            class="about-image mt-50 wow fadeInLeftBig"
+                            data-wow-duration="1.3s"
+                            data-wow-delay="0.5s"
+                        >
+                            <div class="about-shape"></div>
+                            <img
+                                class="app"
+                                src="{{ url_for('static',
+                                filename='Pro/assets/images/about-app.png') }}"
+                                alt="app"
+                            />
+                        </div>
+                        <!-- about image -->
+                    </div>
+                    <div class="col-lg-6">
+                        <div
+                            class="about-content mt-50 wow fadeInRightBig"
+                            data-wow-duration="1.3s"
+                            data-wow-delay="0.5s"
+                        >
+                            <div class="section-title">
+                                <h3 class="title">
+                                    Content Creation for Social Media
+                                </h3>
+                                <p class="text">
+                                    This feature could be used to generates
+                                    engaging and tailored content for social
+                                    media platforms. Businesses can input their
+                                    brand guidelines and key messages, and the
+                                    AI model can generate social media posts,
+                                    captions, and hashtags that align with the
+                                    brand's voice, increasing social media
+                                    presence and engagement.
+                                </p>
+                            </div>
+                            <!-- section title -->
+                            <a
+                                href="/demo?msg=Request%20for%20help%20from%20an%20AI%20chatbot%20with%20content%20creation%20for%20social%20media.%20The%20social%20media%20manager%20is%20looking%20for%20help%20with%20generating%20ideas%20for%20social%20media%20posts%20that%20will%20resonate%20with%20their%20target%20audience,%20writing%20captions%20and%20hashtags%20that%20are%20engaging%20and%20on-brand,%20and%20tracking%20the%20performance%20of%20their%20social%20media%20content.%0A%0AThe%20prompt%20includes%20additional%20details%20about%20the%20social%20media%20manager's%20brand's%20guidelines%20and%20key%20messages,%20the%20type%20of%20social%20media%20platforms%20they%20use,%20and%20their%20target%20audience.%20The%20more%20information%20the%20manager%20can%20provide,%20the%20better%20the%20chatbot%20will%20be%20able%20to%20help%20them."
+                                rel="nofollow"
+                                class="main-btn"
+                                >Try Now</a
+                            >
+                        </div>
+                        <!-- about content -->
+                    </div>
+                </div>
+            </div>
+            <!-- container -->
+        </section>
+
+        <!--====== ABOUT PART ENDS ======-->
+
+        <!--====== DOWNLOAD PART START ======-->
+
+        <section id="download" class="download-area pt-70 pb-40">
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-6 col-md-9">
+                        <div
+                            class="download-image mt-50 wow fadeInRightBig"
+                            data-wow-duration="1.3s"
+                            data-wow-delay="0.2s"
+                        >
+                            <img
+                                class="image"
+                                src="{{ url_for('static',
+                                filename='Pro/assets/images/download-app.png') }}"
+                                alt="download"
+                            />
+
+                            <div class="download-shape-1"></div>
+                            <div class="download-shape-2"></div>
+                        </div>
+                        <!-- download image -->
+                    </div>
+                    <div class="col-lg-6">
+                        <div
+                            class="download-content mt-45 wow fadeInLeftBig"
+                            data-wow-duration="1.3s"
+                            data-wow-delay="0.5s"
+                        >
+                            <h3 class="download-title">
+                                Try Chatbot Now! (General Q/A)
+                            </h3>
+                            <p class="text">
+                                Alii nusquam cu duo, vim eu consulatu
+                                percipitur, meis doorcomprehen sam at vis. Vel
+                                ut dignissim signiferumq Alii nusquam cuduo, vim
+                                eusde consulatu percipitur, meis dolor
+                                comprehensam at vij. Alii nusquam cu duo, vim eu
+                                consulatu percipitur, meis doorcomprehen sam at
+                                vis. Vel ut dignissim signiferumq nusquam.
+                            </p>
+                            <ul>
+                                <li>
+                                    <a
+                                        href="/demo"
+                                        rel="nofollow"
+                                        class="main-btn"
+                                        >Try Now</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- download image -->
+                    </div>
+                </div>
+                <!-- row -->
+            </div>
+            <!-- container -->
+        </section>
+
+        <!--====== DOWNLOAD PART ENDS ======-->
+
+        <!--====== PART START ======-->
+
+        <!--====== PART ENDS ======-->
+
+        <!--====== BACK TOP TOP PART START ======-->
+
+        <a href="#" class="back-to-top"><i class="lni lni-chevron-up"></i></a>
+
+        <!--====== BACK TOP TOP PART ENDS ======-->
+
+        <!--====== PART START ======-->
+
+        <!--
+    <section class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-"></div> 
+            </div>
+        </div>
+    </section>
+-->
+
+        <!--====== PART ENDS ======-->
+
+        <!--====== Jquery js ======-->
+        <!-- <script src="Pro/assets/js/vendor/jquery-1.12.4.min.js"></script> -->
+        <!-- <script src="Pro/assets/js/vendor/modernizr-3.7.1.min.js"></script> -->
+        <script src="{{url_for('static', filename='Pro/assets/js/jquery-1.12.4.min.js')}}"></script>
+        <script src="{{url_for('static', filename='Pro/assets/js/modernizr-3.7.1.min.js')}}"></script>
+
+        <!--====== Bootstrap js ======-->
+        <!-- <script src="Pro/assets/js/popper.min.js"></script>
+        <script src="Pro/assets/js/bootstrap.min.js"></script> -->
+        <script src="{{url_for('static', filename='Pro/assets/js/popper.min.js')}}"></script>
+        <script src="{{url_for('static', filename='Pro/assets/js/bootstrap.min.js')}}"></script>
+
+        <!--====== WOW js ======-->
+        <!-- <script src="Pro/assets/js/wow.min.js"></script> -->
+        <script src="{{url_for('static', filename='Pro/assets/js/wow.min.js')}}"></script>
+
+        <!--====== Scrolling Nav js ======-->
+        <!-- <script src="Pro/assets/js/jquery.easing.min.js"></script>
+        <script src="Pro/assets/js/scrolling-nav.js"></script> -->
+        <script src="{{url_for('static', filename='Pro/assets/js/jquery.easing.min.js')}}"></script>
+        <script src="{{url_for('static', filename='Pro/assets/js/scrolling-nav.min.js')}}"></script>
+
+        <!--====== Main js ======-->
+        <!-- <script src="Pro/assets/js/main.js"></script> -->
+        <script src="{{url_for('static', filename='Pro/assets/js/main.js')}}"></script>
+    </body>
+</html>
